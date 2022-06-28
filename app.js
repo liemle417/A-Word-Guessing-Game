@@ -12,6 +12,7 @@ let missed = 0;
 
 /*Create a "phrases" array*/
 const phrases = [
+
     "Yesterday Once More",
     'Bleeding Love',
     'Party In The USA',
@@ -27,6 +28,7 @@ const phrases = [
     'Someone You Loved',
     'Monsters',
     'What About Now'
+
 ];
 
 
@@ -75,7 +77,7 @@ function checkLetter (button){
          if(letter[i].textContent.toUpperCase() === button.textContent.toUpperCase()){ //Compares the chosen letter to whatever the button says
             letter[i].className = 'show letter'; // Gives the chosen letter the class name of show
             letter[i].style.transition ='all 1s'; //add transitions
-            foundLetter += letter[i].textContent;
+            foundLetter += button.textContent;
          }
     }
     return foundLetter;
@@ -133,7 +135,7 @@ buttons.addEventListener('click', (e) => {
         let letterFound = checkLetter(button); 
         if (letterFound === null){
             missed += 1;
-            tries[missed - 1].src = "images/lostHeart.png"; // removes the hearts
+            tries[tries.length-missed].src = "images/lostHeart.png"; // removes the hearts
         }
         checkWin();
     }  
